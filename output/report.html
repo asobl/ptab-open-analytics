@@ -755,7 +755,7 @@
       <tbody id="panelBody"></tbody>
     </table>
 
-    <p style="font-size:0.75rem;color:var(--muted);margin-top:1rem;">Panel data extracted from <code>documentOCRText</code> in the USPTO decisions API. Covers 8,047 of 20,350 decisions — the remainder are procedural documents (papers, responses, orders) that do not contain panel headers. APJ names converted from ALL CAPS OCR output to Title Case.</p>
+    <p style="font-size:0.75rem;color:var(--muted);margin-top:1rem;">Top 25 judges by panel count shown. Full dataset (146 APJs) available on <a href="https://github.com/asobl/ptab-open-analytics">GitHub</a>. Panel data extracted from <code>documentOCRText</code> in the USPTO decisions API — covers 8,047 of 20,350 decisions. APJ names converted from ALL CAPS OCR output to Title Case.</p>
   </div>
 </section>
 
@@ -978,7 +978,7 @@ function sortRespondents(k) {
 renderRespondents();
 
 // ---- APJ table (plain JS) ----
-let apjState = { data: DATA.top_apjs, search: '', sortKey: 'panels', sortDir: -1 };
+let apjState = { data: DATA.top_apjs.slice(0, 25), search: '', sortKey: 'panels', sortDir: -1 };
 
 function renderAPJ() {
   let list = apjState.data;
