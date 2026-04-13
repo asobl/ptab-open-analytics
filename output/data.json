@@ -1,0 +1,1755 @@
+{
+  "meta": {
+    "generated_at": "2026-04-13T18:29:17Z",
+    "proceedings_total": 19140,
+    "decisions_total": 20350,
+    "records_processed": 20350,
+    "date_range": {
+      "start": "2012-09-16",
+      "end": "2026-04-13"
+    },
+    "partial_institution_treatment": "separate",
+    "note": "Pre-2018 cases flagged as pre_sas_flagged. Partial institution category populated after RAG pass."
+  },
+  "institution_rates": [
+    {
+      "year": 2012,
+      "instituted": 1,
+      "denied": 0,
+      "partial": 0,
+      "other": 86,
+      "pre_sas_flagged": 1,
+      "rate_instituted": 1.0,
+      "rate_partial_excluded": 1.0,
+      "total_decided": 1
+    },
+    {
+      "year": 2013,
+      "instituted": 0,
+      "denied": 4,
+      "partial": 0,
+      "other": 608,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.0,
+      "rate_partial_excluded": 0.0,
+      "total_decided": 4
+    },
+    {
+      "year": 2014,
+      "instituted": 1,
+      "denied": 60,
+      "partial": 0,
+      "other": 1267,
+      "pre_sas_flagged": 1,
+      "rate_instituted": 0.0164,
+      "rate_partial_excluded": 0.0164,
+      "total_decided": 61
+    },
+    {
+      "year": 2015,
+      "instituted": 8,
+      "denied": 377,
+      "partial": 0,
+      "other": 1518,
+      "pre_sas_flagged": 8,
+      "rate_instituted": 0.0208,
+      "rate_partial_excluded": 0.0208,
+      "total_decided": 385
+    },
+    {
+      "year": 2016,
+      "instituted": 16,
+      "denied": 180,
+      "partial": 0,
+      "other": 1395,
+      "pre_sas_flagged": 16,
+      "rate_instituted": 0.0816,
+      "rate_partial_excluded": 0.0816,
+      "total_decided": 196
+    },
+    {
+      "year": 2017,
+      "instituted": 17,
+      "denied": 145,
+      "partial": 0,
+      "other": 1255,
+      "pre_sas_flagged": 17,
+      "rate_instituted": 0.1049,
+      "rate_partial_excluded": 0.1049,
+      "total_decided": 162
+    },
+    {
+      "year": 2018,
+      "instituted": 68,
+      "denied": 45,
+      "partial": 0,
+      "other": 1183,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.6018,
+      "rate_partial_excluded": 0.6018,
+      "total_decided": 113
+    },
+    {
+      "year": 2019,
+      "instituted": 115,
+      "denied": 91,
+      "partial": 0,
+      "other": 892,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.5583,
+      "rate_partial_excluded": 0.5583,
+      "total_decided": 206
+    },
+    {
+      "year": 2020,
+      "instituted": 467,
+      "denied": 65,
+      "partial": 0,
+      "other": 980,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.8778,
+      "rate_partial_excluded": 0.8778,
+      "total_decided": 532
+    },
+    {
+      "year": 2021,
+      "instituted": 1099,
+      "denied": 484,
+      "partial": 0,
+      "other": 465,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.6943,
+      "rate_partial_excluded": 0.6943,
+      "total_decided": 1583
+    },
+    {
+      "year": 2022,
+      "instituted": 1362,
+      "denied": 517,
+      "partial": 0,
+      "other": 273,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.7249,
+      "rate_partial_excluded": 0.7249,
+      "total_decided": 1879
+    },
+    {
+      "year": 2023,
+      "instituted": 1243,
+      "denied": 521,
+      "partial": 0,
+      "other": 216,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.7046,
+      "rate_partial_excluded": 0.7046,
+      "total_decided": 1764
+    },
+    {
+      "year": 2024,
+      "instituted": 1270,
+      "denied": 592,
+      "partial": 0,
+      "other": 143,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.6821,
+      "rate_partial_excluded": 0.6821,
+      "total_decided": 1862
+    },
+    {
+      "year": 2025,
+      "instituted": 370,
+      "denied": 942,
+      "partial": 0,
+      "other": 8,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.282,
+      "rate_partial_excluded": 0.282,
+      "total_decided": 1312
+    },
+    {
+      "year": 2026,
+      "instituted": 0,
+      "denied": 1,
+      "partial": 0,
+      "other": 0,
+      "pre_sas_flagged": 0,
+      "rate_instituted": 0.0,
+      "rate_partial_excluded": 0.0,
+      "total_decided": 1
+    }
+  ],
+  "by_technology": [
+    {
+      "tc": "2600",
+      "label": "Communications / Signal Processing",
+      "instituted": 1164,
+      "denied": 779,
+      "partial": 0,
+      "other": 2060,
+      "rate_instituted": 0.5991,
+      "total_decided": 1943
+    },
+    {
+      "tc": "2400",
+      "label": "Networking / Security",
+      "instituted": 1130,
+      "denied": 781,
+      "partial": 0,
+      "other": 1264,
+      "rate_instituted": 0.5913,
+      "total_decided": 1911
+    },
+    {
+      "tc": "2800",
+      "label": "Semiconductor / Electrical",
+      "instituted": 980,
+      "denied": 611,
+      "partial": 0,
+      "other": 1785,
+      "rate_instituted": 0.616,
+      "total_decided": 1591
+    },
+    {
+      "tc": "3700",
+      "label": "Mechanical / Medical Devices",
+      "instituted": 804,
+      "denied": 413,
+      "partial": 0,
+      "other": 1199,
+      "rate_instituted": 0.6606,
+      "total_decided": 1217
+    },
+    {
+      "tc": "3600",
+      "label": "Transportation / Commerce / Finance",
+      "instituted": 649,
+      "denied": 449,
+      "partial": 0,
+      "other": 1260,
+      "rate_instituted": 0.5911,
+      "total_decided": 1098
+    },
+    {
+      "tc": "2100",
+      "label": "Computer Architecture / Software",
+      "instituted": 604,
+      "denied": 430,
+      "partial": 0,
+      "other": 1080,
+      "rate_instituted": 0.5841,
+      "total_decided": 1034
+    },
+    {
+      "tc": "1600",
+      "label": "Biotech / Pharma",
+      "instituted": 447,
+      "denied": 284,
+      "partial": 0,
+      "other": 923,
+      "rate_instituted": 0.6115,
+      "total_decided": 731
+    },
+    {
+      "tc": "1700",
+      "label": "Chemical / Materials",
+      "instituted": 215,
+      "denied": 211,
+      "partial": 0,
+      "other": 553,
+      "rate_instituted": 0.5047,
+      "total_decided": 426
+    },
+    {
+      "tc": "3900",
+      "label": "Tech Center 3900",
+      "instituted": 34,
+      "denied": 29,
+      "partial": 0,
+      "other": 39,
+      "rate_instituted": 0.5397,
+      "total_decided": 63
+    },
+    {
+      "tc": "2900",
+      "label": "Tech Center 2900",
+      "instituted": 10,
+      "denied": 15,
+      "partial": 0,
+      "other": 29,
+      "rate_instituted": 0.4,
+      "total_decided": 25
+    },
+    {
+      "tc": "2700",
+      "label": "Tech Center 2700",
+      "instituted": 0,
+      "denied": 11,
+      "partial": 0,
+      "other": 74,
+      "rate_instituted": 0.0,
+      "total_decided": 11
+    },
+    {
+      "tc": "CD",
+      "label": "Tech Center CD",
+      "instituted": 0,
+      "denied": 3,
+      "partial": 0,
+      "other": 0,
+      "rate_instituted": 0.0,
+      "total_decided": 3
+    },
+    {
+      "tc": "6200",
+      "label": "Tech Center 6200",
+      "instituted": 0,
+      "denied": 3,
+      "partial": 0,
+      "other": 3,
+      "rate_instituted": 0.0,
+      "total_decided": 3
+    },
+    {
+      "tc": "ODM",
+      "label": "Tech Center ODM",
+      "instituted": 0,
+      "denied": 2,
+      "partial": 0,
+      "other": 1,
+      "rate_instituted": 0.0,
+      "total_decided": 2
+    },
+    {
+      "tc": "OPA",
+      "label": "Tech Center OPA",
+      "instituted": 0,
+      "denied": 1,
+      "partial": 0,
+      "other": 8,
+      "rate_instituted": 0.0,
+      "total_decided": 1
+    },
+    {
+      "tc": "00",
+      "label": "Tech Center 00",
+      "instituted": 0,
+      "denied": 1,
+      "partial": 0,
+      "other": 1,
+      "rate_instituted": 0.0,
+      "total_decided": 1
+    },
+    {
+      "tc": "1200",
+      "label": "Tech Center 1200",
+      "instituted": 0,
+      "denied": 0,
+      "partial": 0,
+      "other": 6,
+      "rate_instituted": null,
+      "total_decided": 0
+    },
+    {
+      "tc": "DCPA",
+      "label": "Tech Center DCPA",
+      "instituted": 0,
+      "denied": 0,
+      "partial": 0,
+      "other": 3,
+      "rate_instituted": null,
+      "total_decided": 0
+    }
+  ],
+  "top_petitioners": [
+    {
+      "canonical_name": "Apple Inc.",
+      "filings": 1112,
+      "instituted": 400,
+      "denied": 218,
+      "other": 494,
+      "win_rate": 0.6472
+    },
+    {
+      "canonical_name": "Samsung Electronics Co., Ltd.",
+      "filings": 934,
+      "instituted": 373,
+      "denied": 218,
+      "other": 343,
+      "win_rate": 0.6311
+    },
+    {
+      "canonical_name": "Google LLC",
+      "filings": 580,
+      "instituted": 249,
+      "denied": 166,
+      "other": 165,
+      "win_rate": 0.6
+    },
+    {
+      "canonical_name": "Microsoft Corporation",
+      "filings": 290,
+      "instituted": 76,
+      "denied": 52,
+      "other": 162,
+      "win_rate": 0.5938
+    },
+    {
+      "canonical_name": "Intel Corporation",
+      "filings": 254,
+      "instituted": 53,
+      "denied": 46,
+      "other": 155,
+      "win_rate": 0.5354
+    },
+    {
+      "canonical_name": "Cisco Systems, Inc.",
+      "filings": 204,
+      "instituted": 70,
+      "denied": 30,
+      "other": 104,
+      "win_rate": 0.7
+    },
+    {
+      "canonical_name": "Amazon.com, Inc.",
+      "filings": 203,
+      "instituted": 88,
+      "denied": 43,
+      "other": 72,
+      "win_rate": 0.6718
+    },
+    {
+      "canonical_name": "Meta Platforms, Inc.",
+      "filings": 159,
+      "instituted": 131,
+      "denied": 19,
+      "other": 9,
+      "win_rate": 0.8733
+    },
+    {
+      "canonical_name": "Unified Patents, LLC",
+      "filings": 157,
+      "instituted": 66,
+      "denied": 18,
+      "other": 73,
+      "win_rate": 0.7857
+    },
+    {
+      "canonical_name": "Micron Technology, Inc.",
+      "filings": 146,
+      "instituted": 69,
+      "denied": 23,
+      "other": 54,
+      "win_rate": 0.75
+    },
+    {
+      "canonical_name": "Volkswagen Group of America, Inc.",
+      "filings": 136,
+      "instituted": 38,
+      "denied": 14,
+      "other": 84,
+      "win_rate": 0.7308
+    },
+    {
+      "canonical_name": "Google Inc.",
+      "filings": 136,
+      "instituted": 0,
+      "denied": 10,
+      "other": 126,
+      "win_rate": 0.0
+    },
+    {
+      "canonical_name": "Comcast Cable Communications, LLC",
+      "filings": 119,
+      "instituted": 10,
+      "denied": 16,
+      "other": 93,
+      "win_rate": 0.3846
+    },
+    {
+      "canonical_name": "Mylan Pharmaceuticals Inc.",
+      "filings": 105,
+      "instituted": 16,
+      "denied": 11,
+      "other": 78,
+      "win_rate": 0.5926
+    },
+    {
+      "canonical_name": "LG Electronics, Inc.",
+      "filings": 104,
+      "instituted": 11,
+      "denied": 22,
+      "other": 71,
+      "win_rate": 0.3333
+    },
+    {
+      "canonical_name": "Facebook, Inc.",
+      "filings": 101,
+      "instituted": 25,
+      "denied": 7,
+      "other": 69,
+      "win_rate": 0.7812
+    },
+    {
+      "canonical_name": "Netflix, Inc.",
+      "filings": 92,
+      "instituted": 46,
+      "denied": 4,
+      "other": 42,
+      "win_rate": 0.92
+    },
+    {
+      "canonical_name": "Juniper Networks, Inc.",
+      "filings": 91,
+      "instituted": 33,
+      "denied": 8,
+      "other": 50,
+      "win_rate": 0.8049
+    },
+    {
+      "canonical_name": "Palo Alto Networks, Inc.",
+      "filings": 86,
+      "instituted": 37,
+      "denied": 19,
+      "other": 30,
+      "win_rate": 0.6607
+    },
+    {
+      "canonical_name": "Ericsson Inc.",
+      "filings": 85,
+      "instituted": 25,
+      "denied": 17,
+      "other": 43,
+      "win_rate": 0.5952
+    },
+    {
+      "canonical_name": "Samsung Electronics America, Inc.",
+      "filings": 83,
+      "instituted": 10,
+      "denied": 30,
+      "other": 43,
+      "win_rate": 0.25
+    },
+    {
+      "canonical_name": "Roku, Inc.",
+      "filings": 80,
+      "instituted": 29,
+      "denied": 30,
+      "other": 21,
+      "win_rate": 0.4915
+    },
+    {
+      "canonical_name": "Unified Patents Inc.",
+      "filings": 79,
+      "instituted": 2,
+      "denied": 9,
+      "other": 68,
+      "win_rate": 0.1818
+    },
+    {
+      "canonical_name": "Ford Motor Company",
+      "filings": 75,
+      "instituted": 21,
+      "denied": 15,
+      "other": 39,
+      "win_rate": 0.5833
+    },
+    {
+      "canonical_name": "Sony Corporation",
+      "filings": 75,
+      "instituted": 9,
+      "denied": 4,
+      "other": 62,
+      "win_rate": 0.6923
+    },
+    {
+      "canonical_name": "Mercedes-Benz USA, LLC",
+      "filings": 68,
+      "instituted": 31,
+      "denied": 4,
+      "other": 33,
+      "win_rate": 0.8857
+    },
+    {
+      "canonical_name": "Toyota Motor Corporation",
+      "filings": 63,
+      "instituted": 13,
+      "denied": 12,
+      "other": 38,
+      "win_rate": 0.52
+    },
+    {
+      "canonical_name": "Halliburton Energy Services, Inc.",
+      "filings": 61,
+      "instituted": 39,
+      "denied": 3,
+      "other": 19,
+      "win_rate": 0.9286
+    },
+    {
+      "canonical_name": "Samsung Electronics Co. Ltd.",
+      "filings": 58,
+      "instituted": 22,
+      "denied": 21,
+      "other": 15,
+      "win_rate": 0.5116
+    },
+    {
+      "canonical_name": "Motorola Mobility LLC",
+      "filings": 54,
+      "instituted": 22,
+      "denied": 8,
+      "other": 24,
+      "win_rate": 0.7333
+    },
+    {
+      "canonical_name": "DISH Network L.L.C.",
+      "filings": 53,
+      "instituted": 17,
+      "denied": 10,
+      "other": 26,
+      "win_rate": 0.6296
+    },
+    {
+      "canonical_name": "Snap Inc.",
+      "filings": 52,
+      "instituted": 20,
+      "denied": 9,
+      "other": 23,
+      "win_rate": 0.6897
+    },
+    {
+      "canonical_name": "BMW of North America, LLC",
+      "filings": 51,
+      "instituted": 25,
+      "denied": 6,
+      "other": 20,
+      "win_rate": 0.8065
+    },
+    {
+      "canonical_name": "Qualcomm Incorporated",
+      "filings": 50,
+      "instituted": 23,
+      "denied": 9,
+      "other": 18,
+      "win_rate": 0.7188
+    },
+    {
+      "canonical_name": "Tesla, Inc.",
+      "filings": 48,
+      "instituted": 40,
+      "denied": 8,
+      "other": 0,
+      "win_rate": 0.8333
+    },
+    {
+      "canonical_name": "Samsung Electronics Co., Ltd",
+      "filings": 48,
+      "instituted": 9,
+      "denied": 10,
+      "other": 29,
+      "win_rate": 0.4737
+    },
+    {
+      "canonical_name": "Askeladden L.L.C.",
+      "filings": 48,
+      "instituted": 29,
+      "denied": 4,
+      "other": 15,
+      "win_rate": 0.8788
+    },
+    {
+      "canonical_name": "TRW Automotive U.S. LLC",
+      "filings": 48,
+      "instituted": 0,
+      "denied": 11,
+      "other": 37,
+      "win_rate": 0.0
+    },
+    {
+      "canonical_name": "RPX Corporation",
+      "filings": 47,
+      "instituted": 0,
+      "denied": 3,
+      "other": 44,
+      "win_rate": 0.0
+    },
+    {
+      "canonical_name": "Medtronic, Inc.",
+      "filings": 46,
+      "instituted": 7,
+      "denied": 1,
+      "other": 38,
+      "win_rate": 0.875
+    },
+    {
+      "canonical_name": "International Business Machines Corporation",
+      "filings": 46,
+      "instituted": 7,
+      "denied": 13,
+      "other": 26,
+      "win_rate": 0.35
+    },
+    {
+      "canonical_name": "Advanced Micro Devices, Inc.",
+      "filings": 42,
+      "instituted": 20,
+      "denied": 4,
+      "other": 18,
+      "win_rate": 0.8333
+    },
+    {
+      "canonical_name": "Oracle Corporation",
+      "filings": 41,
+      "instituted": 5,
+      "denied": 11,
+      "other": 25,
+      "win_rate": 0.3125
+    },
+    {
+      "canonical_name": "Nokia of America Corporation",
+      "filings": 41,
+      "instituted": 11,
+      "denied": 16,
+      "other": 14,
+      "win_rate": 0.4074
+    },
+    {
+      "canonical_name": "Alcon Inc.",
+      "filings": 41,
+      "instituted": 22,
+      "denied": 0,
+      "other": 19,
+      "win_rate": 1.0
+    },
+    {
+      "canonical_name": "HTC Corporation",
+      "filings": 40,
+      "instituted": 0,
+      "denied": 4,
+      "other": 36,
+      "win_rate": 0.0
+    },
+    {
+      "canonical_name": "Cellco Partnership d/b/a Verizon Wireless",
+      "filings": 39,
+      "instituted": 10,
+      "denied": 9,
+      "other": 20,
+      "win_rate": 0.5263
+    },
+    {
+      "canonical_name": "Hulu, LLC",
+      "filings": 39,
+      "instituted": 14,
+      "denied": 2,
+      "other": 23,
+      "win_rate": 0.875
+    },
+    {
+      "canonical_name": "LG Electronics Inc.",
+      "filings": 38,
+      "instituted": 13,
+      "denied": 10,
+      "other": 15,
+      "win_rate": 0.5652
+    },
+    {
+      "canonical_name": "APPLE INC.",
+      "filings": 36,
+      "instituted": 10,
+      "denied": 3,
+      "other": 23,
+      "win_rate": 0.7692
+    }
+  ],
+  "top_respondents": [
+    {
+      "canonical_name": "Intellectual Ventures II LLC",
+      "challenged": 112,
+      "instituted_against": 22,
+      "denied": 16,
+      "survival_rate": 0.1429
+    },
+    {
+      "canonical_name": "Jawbone Innovations, LLC",
+      "challenged": 111,
+      "instituted_against": 77,
+      "denied": 28,
+      "survival_rate": 0.2523
+    },
+    {
+      "canonical_name": "Netlist, Inc.",
+      "challenged": 98,
+      "instituted_against": 45,
+      "denied": 6,
+      "survival_rate": 0.0612
+    },
+    {
+      "canonical_name": "Maxell, Ltd.",
+      "challenged": 94,
+      "instituted_against": 43,
+      "denied": 10,
+      "survival_rate": 0.1064
+    },
+    {
+      "canonical_name": "Uniloc 2017 LLC",
+      "challenged": 87,
+      "instituted_against": 6,
+      "denied": 13,
+      "survival_rate": 0.1494
+    },
+    {
+      "canonical_name": "Masimo Corporation",
+      "challenged": 86,
+      "instituted_against": 34,
+      "denied": 15,
+      "survival_rate": 0.1744
+    },
+    {
+      "canonical_name": "Intellectual Ventures I LLC",
+      "challenged": 75,
+      "instituted_against": 5,
+      "denied": 14,
+      "survival_rate": 0.1867
+    },
+    {
+      "canonical_name": "Nokia Technologies Oy",
+      "challenged": 69,
+      "instituted_against": 37,
+      "denied": 19,
+      "survival_rate": 0.2754
+    },
+    {
+      "canonical_name": "Godo Kaisha IP Bridge 1",
+      "challenged": 64,
+      "instituted_against": 9,
+      "denied": 15,
+      "survival_rate": 0.2344
+    },
+    {
+      "canonical_name": "Regeneron Pharmaceuticals, Inc.",
+      "challenged": 64,
+      "instituted_against": 29,
+      "denied": 9,
+      "survival_rate": 0.1406
+    },
+    {
+      "canonical_name": "Rovi Guides, Inc.",
+      "challenged": 63,
+      "instituted_against": 2,
+      "denied": 2,
+      "survival_rate": 0.0317
+    },
+    {
+      "canonical_name": "Telefonaktiebolaget LM Ericsson",
+      "challenged": 61,
+      "instituted_against": 23,
+      "denied": 11,
+      "survival_rate": 0.1803
+    },
+    {
+      "canonical_name": "Finjan, Inc.",
+      "challenged": 61,
+      "instituted_against": 0,
+      "denied": 23,
+      "survival_rate": 0.377
+    },
+    {
+      "canonical_name": "Magna Electronics Inc.",
+      "challenged": 61,
+      "instituted_against": 0,
+      "denied": 14,
+      "survival_rate": 0.2295
+    },
+    {
+      "canonical_name": "Mullen Industries LLC",
+      "challenged": 56,
+      "instituted_against": 45,
+      "denied": 11,
+      "survival_rate": 0.1964
+    },
+    {
+      "canonical_name": "Proxense, LLC",
+      "challenged": 56,
+      "instituted_against": 33,
+      "denied": 11,
+      "survival_rate": 0.1964
+    },
+    {
+      "canonical_name": "Open Text Inc.",
+      "challenged": 56,
+      "instituted_against": 15,
+      "denied": 31,
+      "survival_rate": 0.5536
+    },
+    {
+      "canonical_name": "Immersion Corporation",
+      "challenged": 55,
+      "instituted_against": 26,
+      "denied": 4,
+      "survival_rate": 0.0727
+    },
+    {
+      "canonical_name": "IPA Technologies Inc., which is a wholly owned subsidiary of Wi-LAN Technologies Inc., which is a wholly owned subsidiary of Wi-LAN Inc., which is a wholly owned subsidiary of Quarterhill Inc.",
+      "challenged": 54,
+      "instituted_against": 5,
+      "denied": 3,
+      "survival_rate": 0.0556
+    },
+    {
+      "canonical_name": "Smartflash LLC",
+      "challenged": 54,
+      "instituted_against": 0,
+      "denied": 1,
+      "survival_rate": 0.0185
+    },
+    {
+      "canonical_name": "Qualcomm Incorporated",
+      "challenged": 53,
+      "instituted_against": 10,
+      "denied": 0,
+      "survival_rate": 0.0
+    },
+    {
+      "canonical_name": "EcoFactor, Inc.",
+      "challenged": 52,
+      "instituted_against": 30,
+      "denied": 4,
+      "survival_rate": 0.0769
+    },
+    {
+      "canonical_name": "Scramoge Technology Ltd.",
+      "challenged": 51,
+      "instituted_against": 22,
+      "denied": 22,
+      "survival_rate": 0.4314
+    },
+    {
+      "canonical_name": "Lynk Labs, Inc.",
+      "challenged": 50,
+      "instituted_against": 40,
+      "denied": 2,
+      "survival_rate": 0.04
+    },
+    {
+      "canonical_name": "Apex Beam Technologies LLC",
+      "challenged": 49,
+      "instituted_against": 46,
+      "denied": 3,
+      "survival_rate": 0.0612
+    },
+    {
+      "canonical_name": "Neo Wireless LLC",
+      "challenged": 49,
+      "instituted_against": 19,
+      "denied": 15,
+      "survival_rate": 0.3061
+    },
+    {
+      "canonical_name": "Centripetal Networks, Inc.",
+      "challenged": 48,
+      "instituted_against": 26,
+      "denied": 6,
+      "survival_rate": 0.125
+    },
+    {
+      "canonical_name": "Uniloc Luxembourg S.A.",
+      "challenged": 48,
+      "instituted_against": 0,
+      "denied": 6,
+      "survival_rate": 0.125
+    },
+    {
+      "canonical_name": "Dali Wireless, Inc.",
+      "challenged": 47,
+      "instituted_against": 22,
+      "denied": 5,
+      "survival_rate": 0.1064
+    },
+    {
+      "canonical_name": "Spero, Yechezkal",
+      "challenged": 46,
+      "instituted_against": 30,
+      "denied": 2,
+      "survival_rate": 0.0435
+    },
+    {
+      "canonical_name": "Genentech, Inc.",
+      "challenged": 46,
+      "instituted_against": 3,
+      "denied": 2,
+      "survival_rate": 0.0435
+    },
+    {
+      "canonical_name": "Innovative Display Technologies LLC",
+      "challenged": 43,
+      "instituted_against": 0,
+      "denied": 0,
+      "survival_rate": 0.0
+    },
+    {
+      "canonical_name": "United Services Automobile Association",
+      "challenged": 42,
+      "instituted_against": 18,
+      "denied": 11,
+      "survival_rate": 0.2619
+    },
+    {
+      "canonical_name": "Headwater Research LLC",
+      "challenged": 42,
+      "instituted_against": 32,
+      "denied": 10,
+      "survival_rate": 0.2381
+    },
+    {
+      "canonical_name": "AMO Development, LLC",
+      "challenged": 41,
+      "instituted_against": 22,
+      "denied": 0,
+      "survival_rate": 0.0
+    },
+    {
+      "canonical_name": "Realtime Data LLC",
+      "challenged": 41,
+      "instituted_against": 0,
+      "denied": 6,
+      "survival_rate": 0.1463
+    },
+    {
+      "canonical_name": "ParkerVision, Inc.",
+      "challenged": 40,
+      "instituted_against": 18,
+      "denied": 5,
+      "survival_rate": 0.125
+    },
+    {
+      "canonical_name": "Express Mobile, Inc.",
+      "challenged": 40,
+      "instituted_against": 17,
+      "denied": 10,
+      "survival_rate": 0.25
+    },
+    {
+      "canonical_name": "AlmondNet, Inc.",
+      "challenged": 40,
+      "instituted_against": 14,
+      "denied": 19,
+      "survival_rate": 0.475
+    },
+    {
+      "canonical_name": "SEVEN Networks, LLC",
+      "challenged": 40,
+      "instituted_against": 0,
+      "denied": 1,
+      "survival_rate": 0.025
+    },
+    {
+      "canonical_name": "Yangtze Memory Technologies Company, Ltd.",
+      "challenged": 38,
+      "instituted_against": 24,
+      "denied": 9,
+      "survival_rate": 0.2368
+    },
+    {
+      "canonical_name": "Apple Inc.",
+      "challenged": 37,
+      "instituted_against": 14,
+      "denied": 10,
+      "survival_rate": 0.2703
+    },
+    {
+      "canonical_name": "Staton Techiya, LLC",
+      "challenged": 36,
+      "instituted_against": 26,
+      "denied": 8,
+      "survival_rate": 0.2222
+    },
+    {
+      "canonical_name": "Bright Data Ltd.",
+      "challenged": 36,
+      "instituted_against": 23,
+      "denied": 9,
+      "survival_rate": 0.25
+    },
+    {
+      "canonical_name": "Intent IQ, LLC",
+      "challenged": 36,
+      "instituted_against": 13,
+      "denied": 15,
+      "survival_rate": 0.4167
+    },
+    {
+      "canonical_name": "Parus Holdings, Inc.",
+      "challenged": 36,
+      "instituted_against": 10,
+      "denied": 14,
+      "survival_rate": 0.3889
+    },
+    {
+      "canonical_name": "Michigan Motor Technologies LLC",
+      "challenged": 36,
+      "instituted_against": 10,
+      "denied": 1,
+      "survival_rate": 0.0278
+    },
+    {
+      "canonical_name": "Koninklijke KPN N.V.",
+      "challenged": 35,
+      "instituted_against": 18,
+      "denied": 11,
+      "survival_rate": 0.3143
+    },
+    {
+      "canonical_name": "U.S. Well Services, LLC",
+      "challenged": 34,
+      "instituted_against": 26,
+      "denied": 5,
+      "survival_rate": 0.1471
+    },
+    {
+      "canonical_name": "DexCom, Inc.",
+      "challenged": 34,
+      "instituted_against": 28,
+      "denied": 1,
+      "survival_rate": 0.0294
+    }
+  ],
+  "petitioner_respondent_pairs": [
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Masimo Corporation",
+      "filings": 70,
+      "instituted": 30
+    },
+    {
+      "petitioner": "Comcast Cable Communications, LLC",
+      "respondent": "Rovi Guides, Inc.",
+      "filings": 63,
+      "instituted": 2
+    },
+    {
+      "petitioner": "TRW Automotive U.S. LLC",
+      "respondent": "Magna Electronics Inc.",
+      "filings": 43,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Alcon Inc.",
+      "respondent": "AMO Development, LLC",
+      "filings": 41,
+      "instituted": 22
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Smartflash LLC",
+      "filings": 40,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Micron Technology, Inc.",
+      "respondent": "Yangtze Memory Technologies Company, Ltd.",
+      "filings": 38,
+      "instituted": 24
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Staton Techiya, LLC",
+      "filings": 36,
+      "instituted": 26
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Apex Beam Technologies LLC",
+      "filings": 35,
+      "instituted": 32
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Netlist, Inc.",
+      "filings": 34,
+      "instituted": 23
+    },
+    {
+      "petitioner": "Abbott Diabetes Care Inc.",
+      "respondent": "DexCom, Inc.",
+      "filings": 34,
+      "instituted": 28
+    },
+    {
+      "petitioner": "Amazon.com, Inc.",
+      "respondent": "Nokia Technologies Oy",
+      "filings": 34,
+      "instituted": 32
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Corephotonics, Ltd.",
+      "filings": 33,
+      "instituted": 14
+    },
+    {
+      "petitioner": "Intel Corporation",
+      "respondent": "Qualcomm Incorporated",
+      "filings": 31,
+      "instituted": 10
+    },
+    {
+      "petitioner": "Microsoft Corporation",
+      "respondent": "IPA Technologies Inc., which is a wholly owned subsidiary of Wi-LAN Technologies Inc., which is a wholly owned subsidiary of Wi-LAN Inc., which is a wholly owned subsidiary of Quarterhill Inc.",
+      "filings": 31,
+      "instituted": 3
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Telefonaktiebolaget LM Ericsson",
+      "filings": 30,
+      "instituted": 21
+    },
+    {
+      "petitioner": "Google LLC",
+      "respondent": "EcoFactor, Inc.",
+      "filings": 29,
+      "instituted": 18
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Power2B, Inc.",
+      "filings": 28,
+      "instituted": 18
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Smith Interface Technologies, LLC",
+      "filings": 28,
+      "instituted": 24
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Headwater Research LLC",
+      "filings": 28,
+      "instituted": 22
+    },
+    {
+      "petitioner": "Netflix, Inc.",
+      "respondent": "Avago Technologies International Sales Pte. Limited",
+      "filings": 28,
+      "instituted": 17
+    },
+    {
+      "petitioner": "Comcast Corporation",
+      "respondent": "Entropic Communications LLC",
+      "filings": 26,
+      "instituted": 16
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Lynk Labs, Inc.",
+      "filings": 26,
+      "instituted": 23
+    },
+    {
+      "petitioner": "Intel Corporation",
+      "respondent": "VLSI Technology LLC",
+      "filings": 26,
+      "instituted": 5
+    },
+    {
+      "petitioner": "3Shape A/S",
+      "respondent": "Align Technology, Inc.",
+      "filings": 26,
+      "instituted": 9
+    },
+    {
+      "petitioner": "CaptionCall, L.L.C.",
+      "respondent": "Ultratec, Inc.",
+      "filings": 26,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Halliburton Energy Services, Inc.",
+      "respondent": "U.S. Well Services, LLC",
+      "filings": 25,
+      "instituted": 20
+    },
+    {
+      "petitioner": "ASML Netherlands B.V.",
+      "respondent": "Energetiq Technology, Inc.",
+      "filings": 25,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Micron Technology, Inc.",
+      "respondent": "Netlist, Inc.",
+      "filings": 24,
+      "instituted": 16
+    },
+    {
+      "petitioner": "Eli Lilly and Company",
+      "respondent": "Teva Pharmaceuticals International GmbH",
+      "filings": 24,
+      "instituted": 6
+    },
+    {
+      "petitioner": "Amazon.com, Inc.",
+      "respondent": "Jawbone Innovations, LLC",
+      "filings": 24,
+      "instituted": 21
+    },
+    {
+      "petitioner": "Global Tel*Link Corporation",
+      "respondent": "Securus Technologies, Inc.",
+      "filings": 24,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Axonics Modulation Technologies, Inc.",
+      "respondent": "Medtronic, Inc.",
+      "filings": 23,
+      "instituted": 2
+    },
+    {
+      "petitioner": "Weber, Inc.",
+      "respondent": "Provisur Technologies, Inc.",
+      "filings": 22,
+      "instituted": 6
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Qualcomm Incorporated",
+      "filings": 22,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Daedalus Prime LLC",
+      "filings": 22,
+      "instituted": 11
+    },
+    {
+      "petitioner": "Google LLC",
+      "respondent": "Jawbone Innovations, LLC",
+      "filings": 22,
+      "instituted": 13
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Scramoge Technology Ltd.",
+      "filings": 21,
+      "instituted": 14
+    },
+    {
+      "petitioner": "Palo Alto Networks, Inc.",
+      "respondent": "Centripetal Networks, Inc.",
+      "filings": 21,
+      "instituted": 14
+    },
+    {
+      "petitioner": "Trend Micro Incorporated",
+      "respondent": "CUPP Computing AS",
+      "filings": 21,
+      "instituted": 10
+    },
+    {
+      "petitioner": "Volkswagen Group of America, Inc.",
+      "respondent": "Spero, Yechezkal",
+      "filings": 21,
+      "instituted": 12
+    },
+    {
+      "petitioner": "Halliburton Energy Services, Inc.",
+      "respondent": "U.S. Well Services LLC",
+      "filings": 21,
+      "instituted": 17
+    },
+    {
+      "petitioner": "Dyson Technology Limited",
+      "respondent": "Omachron Intellectual Property Inc.",
+      "filings": 21,
+      "instituted": 16
+    },
+    {
+      "petitioner": "Google LLC",
+      "respondent": "Jenam Tech, LLC",
+      "filings": 21,
+      "instituted": 3
+    },
+    {
+      "petitioner": "General Electric Company",
+      "respondent": "United Technologies Corporation",
+      "filings": 21,
+      "instituted": 1
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Telefonaktiebolaget LM Ericsson",
+      "filings": 21,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "ProMOS Technologies, Inc.",
+      "filings": 21,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Fisher & Paykel Healthcare Limited",
+      "respondent": "ResMed Limited",
+      "filings": 21,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Palo Alto Networks, Inc.",
+      "respondent": "Finjan, Inc.",
+      "filings": 21,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Meta Platforms, Inc.",
+      "respondent": "Mullen Industries LLC",
+      "filings": 20,
+      "instituted": 20
+    },
+    {
+      "petitioner": "Masimo Corporation",
+      "respondent": "Apple Inc.",
+      "filings": 20,
+      "instituted": 8
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Mojo Mobility, LLC",
+      "filings": 20,
+      "instituted": 4
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Mullen Industries LLC",
+      "filings": 20,
+      "instituted": 16
+    },
+    {
+      "petitioner": "SK hynix Inc.",
+      "respondent": "Netlist, Inc.",
+      "filings": 20,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Stryker Corporation",
+      "respondent": "OsteoMed LLC",
+      "filings": 19,
+      "instituted": 13
+    },
+    {
+      "petitioner": "Home Depot USA, Inc.",
+      "respondent": "Lynk Labs, Inc.",
+      "filings": 19,
+      "instituted": 13
+    },
+    {
+      "petitioner": "Celltrion, Inc.",
+      "respondent": "Regeneron Pharmaceuticals, Inc.",
+      "filings": 19,
+      "instituted": 9
+    },
+    {
+      "petitioner": "Sony Electronics Inc.",
+      "respondent": "Jawbone Innovations, LLC",
+      "filings": 19,
+      "instituted": 16
+    },
+    {
+      "petitioner": "Microsoft Corporation",
+      "respondent": "Uniloc 2017 LLC",
+      "filings": 19,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Ericsson Inc.",
+      "respondent": "Koninklijke KPN N.V.",
+      "filings": 19,
+      "instituted": 13
+    },
+    {
+      "petitioner": "Google LLC",
+      "respondent": "Uniloc 2017 LLC",
+      "filings": 19,
+      "instituted": 4
+    },
+    {
+      "petitioner": "Merck Sharp & Dohme LLC",
+      "respondent": "The Johns Hopkins University",
+      "filings": 18,
+      "instituted": 18
+    },
+    {
+      "petitioner": "Nespresso USA, Inc.",
+      "respondent": "K-fee System GmbH",
+      "filings": 18,
+      "instituted": 14
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "AliveCor, Inc.",
+      "filings": 18,
+      "instituted": 13
+    },
+    {
+      "petitioner": "Volkswagen Group of America, Inc.",
+      "respondent": "Neo Wireless LLC",
+      "filings": 18,
+      "instituted": 6
+    },
+    {
+      "petitioner": "INTEL CORPORATION",
+      "respondent": "AX Wireless, LLC",
+      "filings": 18,
+      "instituted": 16
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Hardin, Ryan",
+      "filings": 18,
+      "instituted": 18
+    },
+    {
+      "petitioner": "Abiomed, Inc.",
+      "respondent": "Maquet Cardiovascular, LLC",
+      "filings": 18,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Nu Mark LLC",
+      "respondent": "Fontem Holdings 1 B.V.",
+      "filings": 18,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "CONTENTGUARD HOLDINGS, INC.",
+      "filings": 18,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Google LLC",
+      "respondent": "Proxense, LLC",
+      "filings": 17,
+      "instituted": 12
+    },
+    {
+      "petitioner": "Vivint, Inc.",
+      "respondent": "SB IP Holdings LLC",
+      "filings": 17,
+      "instituted": 10
+    },
+    {
+      "petitioner": "Google LLC",
+      "respondent": "Parus Holdings, Inc.",
+      "filings": 17,
+      "instituted": 9
+    },
+    {
+      "petitioner": "Meta Platforms, Inc.",
+      "respondent": "Eight kHz, LLC",
+      "filings": 17,
+      "instituted": 16
+    },
+    {
+      "petitioner": "Sonos, Inc.",
+      "respondent": "Google LLC",
+      "filings": 17,
+      "instituted": 12
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "TELEFONAKTIEBOLAGET LM ERICSSON",
+      "filings": 17,
+      "instituted": 10
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Scramoge Technology Ltd.",
+      "filings": 17,
+      "instituted": 6
+    },
+    {
+      "petitioner": "Smith & Nephew, Inc.",
+      "respondent": "Arthrex, Inc.",
+      "filings": 17,
+      "instituted": 1
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Longitude Flash Memory Systems S.a.r.l.",
+      "filings": 17,
+      "instituted": 0
+    },
+    {
+      "petitioner": "RESMED, INC.",
+      "respondent": "New York University",
+      "filings": 16,
+      "instituted": 16
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "CardWare Inc.",
+      "filings": 16,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Google LLC",
+      "respondent": "Geoscope Technologies Pte. Ltd.",
+      "filings": 16,
+      "instituted": 10
+    },
+    {
+      "petitioner": "Nike, Inc.",
+      "respondent": "SherryWear, LLC",
+      "filings": 16,
+      "instituted": 16
+    },
+    {
+      "petitioner": "Amperex Technology Limited",
+      "respondent": "Maxell, Ltd.",
+      "filings": 16,
+      "instituted": 13
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Zentian Limited",
+      "filings": 16,
+      "instituted": 10
+    },
+    {
+      "petitioner": "Netskope, Inc.",
+      "respondent": "Fortinet, Inc.",
+      "filings": 16,
+      "instituted": 10
+    },
+    {
+      "petitioner": "Meta Platforms, Inc.",
+      "respondent": "Jawbone Innovations, LLC",
+      "filings": 16,
+      "instituted": 11
+    },
+    {
+      "petitioner": "Caterpillar Inc.",
+      "respondent": "Wirtgen America, Inc.",
+      "filings": 16,
+      "instituted": 8
+    },
+    {
+      "petitioner": "US Conec Ltd.",
+      "respondent": "Senko Advanced Components, Inc.",
+      "filings": 16,
+      "instituted": 14
+    },
+    {
+      "petitioner": "Meta Platforms, Inc.",
+      "respondent": "Thales Visionix, Inc.",
+      "filings": 16,
+      "instituted": 16
+    },
+    {
+      "petitioner": "Google LLC",
+      "respondent": "IPA Technologies Inc., which is a wholly owned subsidiary of Wi-LAN Technologies Inc., which is a wholly owned subsidiary of Wi-LAN Inc., which is a wholly owned subsidiary of Quarterhill Inc.",
+      "filings": 16,
+      "instituted": 2
+    },
+    {
+      "petitioner": "Polygroup Limited (MCO)",
+      "respondent": "WILLIS ELECTRIC CO., LTD.",
+      "filings": 16,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Intel Corporation",
+      "respondent": "ACQIS LLC",
+      "filings": 16,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Volkswagen Group of America, Inc.",
+      "respondent": "Michigan Motor Technologies LLC",
+      "filings": 16,
+      "instituted": 0
+    },
+    {
+      "petitioner": "IBG LLC",
+      "respondent": "Trading Technologies International, Inc.",
+      "filings": 16,
+      "instituted": 0
+    },
+    {
+      "petitioner": "Code200, UAB",
+      "respondent": "Bright Data Ltd.",
+      "filings": 15,
+      "instituted": 6
+    },
+    {
+      "petitioner": "Valve Corporation",
+      "respondent": "Immersion Corporation",
+      "filings": 15,
+      "instituted": 14
+    },
+    {
+      "petitioner": "Apple Inc.",
+      "respondent": "Carbyne Biometrics, LLC",
+      "filings": 15,
+      "instituted": 10
+    },
+    {
+      "petitioner": "Motorola Mobility LLC",
+      "respondent": "Largan Precision Co., Ltd.",
+      "filings": 15,
+      "instituted": 12
+    },
+    {
+      "petitioner": "Samsung Electronics Co., Ltd.",
+      "respondent": "Oura Health Oy",
+      "filings": 15,
+      "instituted": 9
+    },
+    {
+      "petitioner": "ecobee Technologies ULC",
+      "respondent": "EcoFactor, Inc.",
+      "filings": 15,
+      "instituted": 10
+    }
+  ],
+  "trial_types": [
+    {
+      "trial_type": "IPR",
+      "filings": 19285,
+      "instituted": 5827,
+      "denied": 3818,
+      "rate_instituted": 0.6041
+    },
+    {
+      "trial_type": "PGR",
+      "filings": 544,
+      "instituted": 202,
+      "denied": 141,
+      "rate_instituted": 0.5889
+    },
+    {
+      "trial_type": "CBM",
+      "filings": 493,
+      "instituted": 5,
+      "denied": 55,
+      "rate_instituted": 0.0833
+    },
+    {
+      "trial_type": "DER",
+      "filings": 28,
+      "instituted": 3,
+      "denied": 10,
+      "rate_instituted": 0.2308
+    }
+  ],
+  "timing": {
+    "median_petition_to_institution_days": 190,
+    "p25_days": 180,
+    "p75_days": 201,
+    "sample_size": 18255
+  }
+}

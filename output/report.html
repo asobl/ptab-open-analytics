@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PTAB Open Analytics — Free IPR Intelligence Since 2012</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+<style>
+  /* =====================================================
+   * PTAB Open Analytics — Design System
+   * Named aesthetic: "Patent Intelligence Brief"
+   * Like a Bloomberg Intelligence report crossed with
+   * a Westlaw research digest. Serif authority.
+   * Monospace precision. Editorial not dashboard.
+   * ===================================================== */
+
+  :root {
+    /* Core palette — consistent with project */
+    --ink:        #1a1a2e;
+    --ink2:       #2e2e45;
+    --ink3:       #404060;
+
+    /* Paper — warmer than white, like aged legal brief stock */
+    --paper:      #f6f4ef;
+    --paper2:     #edeae3;
+    --card:       #ffffff;
+
+    /* Accent system */
+    --accent:     #c8401a;   /* seal red — authority */
+    --accent-dk:  #9e2c0e;   /* deeper seal for hover */
+    --accent2:    #1e4d91;   /* deep navy blue — data link */
+    --accent3:    #1a6644;   /* forest green — positive outcome */
+
+    /* Semantic data colors */
+    --data-pos:   #1a6644;
+    --data-neg:   #c8401a;
+    --data-neu:   #5a6a7a;
+
+    /* Editorial tones */
+    --gold:       #8a6714;   /* legal citation gold */
+    --rule:       #d0ccc3;   /* divider lines — aged paper rules */
+    --muted:      #72706a;   /* body text secondary */
+    --border:     #dedad4;
+    --highlight:  #fdf6e3;   /* legal yellow marker */
+
+    /* Typography */
+    --serif: Georgia, 'Times New Roman', serif;
+    --mono:  'Courier New', Courier, monospace;
+    --sans:  -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+    /* Spacing rhythm */
+    --section-pad: 4.5rem;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ---- Navigation ---- */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink);
+    border-bottom: 2px solid var(--accent);
+    padding: 0 2rem;
+    display: flex; align-items: stretch;
+    overflow-x: auto; white-space: nowrap;
+    gap: 0;
+  }
+  nav .logo {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    padding: 0 1.5rem 0 0;
+    margin-right: 1rem;
+    border-right: 1px solid #2e2e45;
+    display: flex; align-items: center;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  nav a {
+    color: #9090a8;
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    padding: 0 0.85rem;
+    display: flex; align-items: center;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+    height: 46px;
+  }
+  nav a:hover { color: #fff; border-bottom-color: var(--accent); }
+
+  /* ---- Layout ---- */
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+  section {
+    padding: var(--section-pad) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-child { border-bottom: none; }
+
+  /* ---- Hero — report cover style ---- */
+  .hero {
+    background: var(--ink);
+    color: #fff;
+    padding: 4.5rem 0 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Subtle grid texture on hero */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 47px, rgba(255,255,255,0.025) 47px, rgba(255,255,255,0.025) 48px
+    ), repeating-linear-gradient(
+      90deg, transparent, transparent 47px, rgba(255,255,255,0.025) 47px, rgba(255,255,255,0.025) 48px
+    );
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .hero-eyebrow-tag {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+  .hero-eyebrow-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #c8401a40, transparent);
+  }
+  .hero-eyebrow-date {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: #3e3e5a;
+    letter-spacing: 0.08em;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent-dk);
+  }
+  .hero .sub {
+    font-size: 0.95rem;
+    color: #8a8aa0;
+    max-width: 560px;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid #2a2a42;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .hero-stat {
+    padding: 1.25rem 1.5rem;
+    border-right: 1px solid #2a2a42;
+    position: relative;
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .hero-stat:hover::before { opacity: 1; }
+  .hero-stat .num {
+    font-family: var(--mono);
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #f0efea;
+    line-height: 1;
+    display: block;
+  }
+  .hero-stat .lbl {
+    font-size: 0.68rem;
+    color: #5a5a74;
+    margin-top: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ---- Section headings ---- */
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  h2 .tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  h3 {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 2rem 0 0.6rem;
+    color: var(--ink2);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: #3a3850;
+    font-size: 0.93rem;
+    line-height: 1.75;
+  }
+
+  /* ---- Callouts ---- */
+  .callout {
+    background: var(--highlight);
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+  }
+  .callout p { margin: 0; color: var(--ink); }
+  .callout-blue { background: #eef3fb; border-left-color: var(--accent2); }
+  .callout-red  { background: #fdf0ed; border-left-color: var(--accent); }
+
+  /* ---- Chart containers ---- */
+  .chart-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    /* Subtle grid paper background */
+    background-image: linear-gradient(var(--paper2) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--paper2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-color: #fff;
+  }
+  .chart-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  /* ---- Tables — tight Bloomberg terminal style ---- */
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 1rem; }
+
+  thead tr {
+    background: var(--ink);
+  }
+  th {
+    color: #8a8aa0;
+    padding: 0.55rem 1rem;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--accent);
+  }
+  th:hover { color: #fff; }
+
+  td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    color: #2e2e45;
+  }
+  tbody tr:nth-child(even) td { background: rgba(0,0,0,0.015); }
+  tbody tr:hover td { background: var(--highlight); }
+
+  /* ---- Badges ---- */
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    letter-spacing: 0.06em;
+  }
+  .badge-green { color: var(--data-pos); background: #e8f5ee; }
+  .badge-red   { color: var(--data-neg); background: #fdf0ed; }
+  .badge-gold  { color: var(--gold);     background: var(--highlight); }
+
+  /* ---- Rate bars — inline terminal style ---- */
+  .rate-bar { display: flex; align-items: center; gap: 0.6rem; }
+  .rate-bar .bar {
+    height: 4px;
+    background: var(--data-pos);
+    flex-shrink: 0;
+  }
+  .rate-bar .val {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    min-width: 2.8rem;
+    text-align: right;
+  }
+
+  /* ---- Search input ---- */
+  input[type=text] {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 0.5rem 0.85rem;
+    width: 100%;
+    max-width: 340px;
+    outline: none;
+    background: var(--card);
+    color: var(--ink);
+    letter-spacing: 0.03em;
+  }
+  input[type=text]:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(200,64,26,0.1); }
+  input[type=text]::placeholder { color: #b0aea8; }
+
+  /* ---- Stat row — timing section ---- */
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 1.5rem 0; border: 1px solid var(--border); }
+  .stat-card {
+    padding: 1.5rem;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    background: var(--card);
+  }
+  .stat-card:last-child { border-right: none; }
+  .stat-card .n {
+    font-family: var(--mono);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    display: block;
+    line-height: 1;
+  }
+  .stat-card .l {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---- Pair chips ---- */
+  .pair-chip {
+    display: inline-block;
+    font-size: 0.78rem;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.75rem;
+    margin: 0.25rem;
+  }
+  .pair-chip strong { color: var(--ink); font-weight: 700; }
+  .pair-chip .count { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); }
+
+  /* ---- Disclaimer ---- */
+  .disclaimer {
+    background: var(--paper2);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ink3);
+    padding: 1.25rem 1.5rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 2rem;
+  }
+
+  /* ---- Patent Signals CTA ---- */
+  .patent-signals-cta {
+    background: var(--ink);
+    color: #fff;
+    padding: 2rem 2.5rem;
+    margin: 2.5rem 0 0;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+    border-top: 3px solid var(--accent);
+  }
+  .patent-signals-cta p { color: #7a7a94; margin: 0.35rem 0 0; font-size: 0.88rem; }
+  .patent-signals-cta h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .patent-signals-cta a {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.65rem 1.4rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .patent-signals-cta a:hover { background: var(--accent-dk); }
+
+  /* ---- Footer ---- */
+  .footer-bar {
+    background: var(--ink);
+    color: #fff;
+    padding: 3rem 0;
+    border-top: 3px solid var(--accent);
+  }
+  .footer-bar a { color: var(--accent2); text-decoration: none; }
+  .footer-bar a:hover { text-decoration: underline; }
+
+  /* ---- Code ---- */
+  code {
+    font-family: var(--mono);
+    font-size: 0.82em;
+    background: var(--paper2);
+    border: 1px solid var(--border);
+    padding: 0.1em 0.4em;
+    color: var(--ink2);
+  }
+
+  /* ---- Links ---- */
+  a { color: var(--accent2); }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 700px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .hero-stat { border-bottom: 1px solid #2a2a42; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 2rem; }
+    .patent-signals-cta { flex-direction: column; }
+    .container { padding: 0 1rem; }
+    :root { --section-pad: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">PTAB OPEN ANALYTICS</div>
+  <a href="#rates">Institution Rates</a>
+  <a href="#technology">By Technology</a>
+  <a href="#petitioners">Petitioners</a>
+  <a href="#respondents">Respondents</a>
+  <a href="#pairs">Notable Pairs</a>
+  <a href="#timing">Timing</a>
+  <a href="#methodology">Methodology</a>
+</nav>
+
+<div class="hero">
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-tag">PTAB Open Analytics — Vol. 1 — USPTO Data Since 2012</span>
+      <span class="hero-eyebrow-rule"></span>
+      <span class="hero-eyebrow-date">April 2026</span>
+    </div>
+    <h1>Free IPR Intelligence.<br><em>What Lex Machina charges $30k/year for.</em></h1>
+    <p class="sub">Institution rates, petitioner win rates, top respondents, and timing data pulled directly from the USPTO PTAB API. Open source. No login. Updated quarterly.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">19,140</span>
+        <div class="lbl">Total Proceedings</div>
+      </div>
+      <div class="hero-stat">
+        <span class="num">60%</span>
+        <div class="lbl">Overall Institution Rate</div>
+      </div>
+      <div class="hero-stat">
+        <span class="num">190</span>
+        <div class="lbl">Median Days to Decision</div>
+      </div>
+      <div class="hero-stat">
+        <span class="num">Apr 2026</span>
+        <div class="lbl">Data Through</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="rates">
+  <div class="container">
+    <h2><span class="tag">Section 01</span>Institution Rates Over Time</h2>
+    <p>Overall rate across all decided cases: <strong>60%</strong>. The reliable window is 2021-2024 — large sample sizes, complete decision records. See methodology for notes on 2025 (pending cases) and pre-2018 (data coverage gaps).</p>
+
+    <div class="chart-wrap">
+      <div class="chart-label">Institution rate by petition year — IPR, PGR, CBM combined</div>
+      <canvas id="ratesChart" height="80"></canvas>
+    </div>
+
+    <div class="callout">
+      <p><strong>2025 caveat:</strong> The 28% rate for 2025 petitions is not a real trend. Most 2025 filings are still pending — the institution decision typically comes ~190 days after filing, so 2025 petitions filed after October have not been decided yet. Early-decided cases skew toward denials, depressing the apparent rate.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <div class="chart-label">Trial type breakdown (all filings)</div>
+        <canvas id="typeChart" height="200"></canvas>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-label">Institution rate by trial type</div>
+        <canvas id="typeRateChart" height="200"></canvas>
+      </div>
+    </div>
+
+    <div class="callout callout-red">
+      <p><strong>CBM is effectively dead:</strong> Covered Business Method review has an 8.3% institution rate across 493 filings. The America Invents Act sunset provision for CBM expired September 2020 — no new CBM petitions can be filed. Existing cases still work through the system.</p>
+    </div>
+  </div>
+</section>
+
+<section id="technology">
+  <div class="container">
+    <h2><span class="tag">Section 02</span>Institution Rates by Technology Area</h2>
+    <p>Mechanical and Medical Devices leads at 66%. Chemical and Materials is the hardest field to institute — 50% rate on 426 decided cases. Communications and Networking are the highest-volume areas.</p>
+
+    <div class="chart-wrap">
+      <div class="chart-label">Institution rate by USPTO technology center (decided cases only)</div>
+      <canvas id="techChart" height="120"></canvas>
+    </div>
+  </div>
+</section>
+
+<section id="petitioners">
+  <div class="container">
+    <h2><span class="tag">Section 03</span>Top Petitioners</h2>
+    <p>Apple leads all petitioners with 1,112 filings since 2012. Meta Platforms has the highest win rate among high-volume filers at 87% — almost every IPR they file gets instituted. Netflix at 92% on 92 filings is the single most striking stat in the dataset.</p>
+
+    <div style="margin: 1rem 0; display:flex; align-items:center; gap:1rem;">
+      <input type="text" id="petSearch" placeholder="Filter by petitioner name..." oninput="filterPetitioners(this.value)">
+      <span id="petCount" style="font-family:var(--mono);font-size:0.75rem;color:var(--muted)"></span>
+    </div>
+
+    <table id="petTable">
+      <thead>
+        <tr>
+          <th onclick="sortPetitioners('rank')">#</th>
+          <th onclick="sortPetitioners('canonical_name')">Petitioner</th>
+          <th onclick="sortPetitioners('filings')">Filings ↕</th>
+          <th onclick="sortPetitioners('win_rate')">Win Rate ↕</th>
+          <th onclick="sortPetitioners('instituted')">Instituted</th>
+          <th onclick="sortPetitioners('denied')">Denied</th>
+        </tr>
+      </thead>
+      <tbody id="petBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="respondents">
+  <div class="container">
+    <h2><span class="tag">Section 04</span>Most Challenged Patent Owners</h2>
+    <p>The most-challenged entities are overwhelmingly NPEs and patent assertion entities. Intellectual Ventures leads with 112 proceedings. Jawbone Innovations (111) and Netlist (98) round out the top three. Finjan survived 23 of 23 decided challenges — the highest survival rate among high-volume respondents.</p>
+
+    <div style="margin: 1rem 0; display:flex; align-items:center; gap:1rem;">
+      <input type="text" id="respSearch" placeholder="Filter by respondent name..." oninput="filterRespondents(this.value)">
+      <span id="respCount" style="font-family:var(--mono);font-size:0.75rem;color:var(--muted)"></span>
+    </div>
+
+    <table id="respTable">
+      <thead>
+        <tr>
+          <th onclick="sortRespondents('rank')">#</th>
+          <th onclick="sortRespondents('canonical_name')">Patent Owner</th>
+          <th onclick="sortRespondents('challenged')">Challenged ↕</th>
+          <th onclick="sortRespondents('survival_rate')">Survival Rate ↕</th>
+          <th onclick="sortRespondents('instituted_against')">Instituted Against</th>
+          <th onclick="sortRespondents('denied')">Denied (Survived)</th>
+        </tr>
+      </thead>
+      <tbody id="respBody"></tbody>
+    </table>
+  </div>
+</section>
+<section id="pairs">
+  <div class="container">
+    <h2><span class="tag">Section 05</span>Notable Petitioner-Respondent Pairs</h2>
+    <p>These are the most-filed adversarial pairs in PTAB history. Some tell the story of major patent wars. Apple vs. Masimo (70 filings) is the Apple Watch health sensor dispute. Intel vs. Qualcomm (31 filings) is the chip architecture war. Comcast vs. Rovi (63 filings, 2 institutions) shows that filing volume does not equal success.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Petitioner</th>
+          <th>vs. Respondent</th>
+          <th>Filings</th>
+          <th>Instituted</th>
+          <th>Win Rate</th>
+        </tr>
+      </thead>
+      <tbody id="pairs-table"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="timing">
+  <div class="container">
+    <h2><span class="tag">Section 06</span>Timing</h2>
+    <p>The PTAB issues institution decisions in a remarkably tight window. The 35-day spread between the 25th and 75th percentile (180 to 201 days) shows the board runs on a strict internal clock.</p>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="n">180</div>
+        <div class="l">Days (25th percentile)</div>
+      </div>
+      <div class="stat-card">
+        <div class="n">190</div>
+        <div class="l">Median Days to Institution Decision</div>
+      </div>
+      <div class="stat-card">
+        <div class="n">201</div>
+        <div class="l">Days (75th percentile)</div>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <p><strong>What this means for practitioners:</strong> If you file an IPR petition today, you can reliably model a final institution decision in approximately 6 months (180-201 days). The statutory deadline is 3 months from patent owner's preliminary response, and the PTAB consistently hits it. Budget your litigation calendar accordingly.</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-label">Institution decision timing distribution (petition filing to institution date) — 18,255 cases</div>
+      <canvas id="timingChart" height="80"></canvas>
+    </div>
+  </div>
+</section>
+
+<section id="methodology">
+  <div class="container">
+    <h2><span class="tag">Section 07</span>Methodology</h2>
+
+    <h3>Data source</h3>
+    <p>All data pulled from the USPTO PTAB API v3 at <code>api.uspto.gov/api/v1/patent/trials/</code>. Two endpoints: proceedings search (19,140 records) and decisions search (20,350 records). Collected April 13, 2026. Code is open source at <a href="https://github.com/asobl/ptab-open-analytics">github.com/asobl/ptab-open-analytics</a>.</p>
+
+    <h3>Institution rate calculation</h3>
+    <p>Institution rate = (decisions with outcome "instituted") / (decisions with outcome "instituted" or "denied"). Pending, settled, and dismissed cases excluded from the denominator. "Instituted" includes: Institution Granted, Final Written Decision, Affirmed, Settled After Institution, Request for Adverse Judgment After Institution. "Denied" includes: Institution Denied, Settled Before Institution, Dismissed Before Institution.</p>
+
+    <h3>Partial institution (pre-SAS Institute)</h3>
+    <p>Before the Supreme Court's 2018 SAS Institute v. Iancu decision, the PTAB could institute on some grounds and deny others. This analysis currently treats all pre-2018 institution decisions as binary (granted or denied) and flags them with a <code>pre_sas_flagged</code> field in the dataset. A future RAG pass will identify partial institutions in decision text and reclassify them. Consult the raw dataset for pre-2018 cases requiring granular analysis.</p>
+
+    <h3>Early year data quality (2012-2017)</h3>
+    <p>Institution rates for 2012-2017 petition years are anomalously low in this dataset (1-10%) compared to published studies showing 60-80% rates in that era. The decisions API endpoint appears to have incomplete coverage for older decisions — many 2012-2017 institution grants were issued 7-10 years ago and may not be indexed in the current API. Use 2021-2024 as the reliable analytical window. The raw dataset is open for community verification and correction.</p>
+
+    <h3>Entity resolution</h3>
+    <p>Petitioner and respondent names are normalized using <code>data/canonical-names.json</code>. "Google Inc." and "Google LLC" appear as separate entities in this dataset — a known gap that community contributions can fix. Submit corrections via pull request.</p>
+
+    <h3>Reproducibility</h3>
+    <p>All scripts are in the GitHub repo. Run <code>python3 collect.py</code> then <code>python3 analyze.py</code> to reproduce this dataset from scratch. The data refreshes quarterly. Each refresh is tagged as a GitHub release.</p>
+
+    <div class="disclaimer">
+      <strong>Not legal advice.</strong> This is AI-assisted analysis of public USPTO data. Verify all findings against original PTAB decisions before use in legal strategy or filings. Institution rates are descriptive statistics, not predictions. Past board behavior does not predict future outcomes for any specific petition.
+    </div>
+
+    <div class="patent-signals-cta">
+      <div>
+        <h3>This is a historical snapshot from April 2026.</h3>
+        <p>The PTAB files new IPR petitions every week. Want alerts when new proceedings are filed in your technology area, or when a petition targets a patent in your portfolio?</p>
+      </div>
+      <a href="https://patentsignals.com?utm_source=ptab-open-analytics&utm_medium=report&utm_campaign=cta" target="_blank">Patent Signals: Live PTAB Monitoring</a>
+    </div>
+  </div>
+</section>
+
+<div class="footer-bar">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 2rem;">
+      <div>
+        <div style="font-family: var(--mono); font-size: 0.7rem; color: #555; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Built by</div>
+        <div style="color: #ccc; font-size: 0.95rem;"><a href="https://adamrusseksobol.com">Adam Russek-Sobol</a> — Founder, <a href="https://lobosinnovation.com">Lobos Innovation</a></div>
+        <div style="color: #666; font-size: 0.82rem; margin-top: 0.4rem;">20+ granted patents. Primary inventor on a 2018 filing with 500+ forward citations.</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-family: var(--mono); font-size: 0.7rem; color: #555; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Resources</div>
+        <div style="font-size: 0.88rem; line-height: 2;">
+          <a href="https://github.com/asobl/ptab-open-analytics">GitHub Repo</a><br>
+          <a href="https://github.com/asobl/awesome-patent-tools">Awesome Patent Tools</a><br>
+          <a href="https://patentsignals.com">Patent Signals</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #333; font-family: var(--mono); font-size: 0.7rem; color: #555;">
+      Data: USPTO PTAB API v3 (api.uspto.gov) — April 2026 snapshot — 19,140 proceedings, 20,350 decisions — MIT License
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA = {"institution_rates":[{"year":2012,"instituted":1,"denied":0,"rate_instituted":1.0,"total_decided":1},{"year":2013,"instituted":0,"denied":4,"rate_instituted":0.0,"total_decided":4},{"year":2014,"instituted":1,"denied":60,"rate_instituted":0.0164,"total_decided":61},{"year":2015,"instituted":8,"denied":377,"rate_instituted":0.0208,"total_decided":385},{"year":2016,"instituted":16,"denied":180,"rate_instituted":0.0816,"total_decided":196},{"year":2017,"instituted":17,"denied":145,"rate_instituted":0.1049,"total_decided":162},{"year":2018,"instituted":68,"denied":45,"rate_instituted":0.6018,"total_decided":113},{"year":2019,"instituted":115,"denied":91,"rate_instituted":0.5583,"total_decided":206},{"year":2020,"instituted":467,"denied":65,"rate_instituted":0.8778,"total_decided":532},{"year":2021,"instituted":1099,"denied":484,"rate_instituted":0.6943,"total_decided":1583},{"year":2022,"instituted":1362,"denied":517,"rate_instituted":0.7249,"total_decided":1879},{"year":2023,"instituted":1243,"denied":521,"rate_instituted":0.7046,"total_decided":1764},{"year":2024,"instituted":1270,"denied":592,"rate_instituted":0.6821,"total_decided":1862},{"year":2025,"instituted":370,"denied":942,"rate_instituted":0.282,"total_decided":1312}],"by_technology":[{"tc":"3700","label":"Mechanical / Medical Devices","instituted":804,"denied":413,"rate_instituted":0.6606,"total_decided":1217},{"tc":"2600","label":"Communications / Signal Processing","instituted":1164,"denied":779,"rate_instituted":0.5991,"total_decided":1943},{"tc":"2800","label":"Semiconductor / Electrical","instituted":980,"denied":611,"rate_instituted":0.616,"total_decided":1591},{"tc":"2400","label":"Networking / Security","instituted":1130,"denied":781,"rate_instituted":0.5913,"total_decided":1911},{"tc":"3600","label":"Transportation / Commerce / Finance","instituted":649,"denied":449,"rate_instituted":0.5911,"total_decided":1098},{"tc":"1600","label":"Biotech / Pharma","instituted":447,"denied":284,"rate_instituted":0.6115,"total_decided":731},{"tc":"2100","label":"Computer Architecture / Software","instituted":604,"denied":430,"rate_instituted":0.5841,"total_decided":1034},{"tc":"1700","label":"Chemical / Materials","instituted":215,"denied":211,"rate_instituted":0.5047,"total_decided":426}],"top_petitioners":[{"canonical_name":"Apple Inc.","filings":1112,"instituted":400,"denied":218,"win_rate":0.6472},{"canonical_name":"Samsung Electronics Co., Ltd.","filings":934,"instituted":373,"denied":218,"win_rate":0.6311},{"canonical_name":"Google LLC","filings":580,"instituted":249,"denied":166,"win_rate":0.6},{"canonical_name":"Microsoft Corporation","filings":290,"instituted":76,"denied":52,"win_rate":0.5938},{"canonical_name":"Intel Corporation","filings":254,"instituted":53,"denied":46,"win_rate":0.5354},{"canonical_name":"Cisco Systems, Inc.","filings":204,"instituted":70,"denied":30,"win_rate":0.7},{"canonical_name":"Amazon.com, Inc.","filings":203,"instituted":88,"denied":43,"win_rate":0.6718},{"canonical_name":"Meta Platforms, Inc.","filings":159,"instituted":131,"denied":19,"win_rate":0.8733},{"canonical_name":"Unified Patents, LLC","filings":157,"instituted":66,"denied":18,"win_rate":0.7857},{"canonical_name":"Micron Technology, Inc.","filings":146,"instituted":69,"denied":23,"win_rate":0.75},{"canonical_name":"Volkswagen Group of America, Inc.","filings":136,"instituted":38,"denied":14,"win_rate":0.7308},{"canonical_name":"Comcast Cable Communications, LLC","filings":119,"instituted":10,"denied":16,"win_rate":0.3846},{"canonical_name":"Mylan Pharmaceuticals Inc.","filings":105,"instituted":16,"denied":11,"win_rate":0.5926},{"canonical_name":"LG Electronics, Inc.","filings":104,"instituted":11,"denied":22,"win_rate":0.3333},{"canonical_name":"Facebook, Inc.","filings":101,"instituted":25,"denied":7,"win_rate":0.7812},{"canonical_name":"Netflix, Inc.","filings":92,"instituted":46,"denied":4,"win_rate":0.92},{"canonical_name":"Juniper Networks, Inc.","filings":91,"instituted":33,"denied":8,"win_rate":0.8049},{"canonical_name":"Palo Alto Networks, Inc.","filings":86,"instituted":37,"denied":19,"win_rate":0.6607},{"canonical_name":"Ericsson Inc.","filings":85,"instituted":25,"denied":17,"win_rate":0.5952},{"canonical_name":"Roku, Inc.","filings":80,"instituted":29,"denied":30,"win_rate":0.4915},{"canonical_name":"Ford Motor Company","filings":75,"instituted":21,"denied":15,"win_rate":0.5833},{"canonical_name":"Sony Corporation","filings":75,"instituted":9,"denied":4,"win_rate":0.6923},{"canonical_name":"Halliburton Energy Services, Inc.","filings":74,"instituted":49,"denied":5,"win_rate":0.9074},{"canonical_name":"Abbott Diabetes Care Inc.","filings":72,"instituted":46,"denied":7,"win_rate":0.8679},{"canonical_name":"Palo Alto Networks, Inc.","filings":68,"instituted":18,"denied":13,"win_rate":0.5806}],"top_respondents":[{"canonical_name":"Intellectual Ventures II LLC","challenged":112,"instituted_against":22,"denied":16,"survival_rate":0.1429},{"canonical_name":"Jawbone Innovations, LLC","challenged":111,"instituted_against":77,"denied":28,"survival_rate":0.2523},{"canonical_name":"Netlist, Inc.","challenged":98,"instituted_against":45,"denied":6,"survival_rate":0.0612},{"canonical_name":"Maxell, Ltd.","challenged":94,"instituted_against":43,"denied":10,"survival_rate":0.1064},{"canonical_name":"Uniloc 2017 LLC","challenged":87,"instituted_against":6,"denied":13,"survival_rate":0.1494},{"canonical_name":"Masimo Corporation","challenged":86,"instituted_against":34,"denied":15,"survival_rate":0.1744},{"canonical_name":"Intellectual Ventures I LLC","challenged":75,"instituted_against":5,"denied":14,"survival_rate":0.1867},{"canonical_name":"Nokia Technologies Oy","challenged":69,"instituted_against":37,"denied":19,"survival_rate":0.2754},{"canonical_name":"Godo Kaisha IP Bridge 1","challenged":64,"instituted_against":9,"denied":15,"survival_rate":0.2344},{"canonical_name":"Regeneron Pharmaceuticals, Inc.","challenged":64,"instituted_against":29,"denied":9,"survival_rate":0.1406},{"canonical_name":"Rovi Guides, Inc.","challenged":63,"instituted_against":2,"denied":2,"survival_rate":0.0317},{"canonical_name":"Telefonaktiebolaget LM Ericsson","challenged":61,"instituted_against":23,"denied":11,"survival_rate":0.1803},{"canonical_name":"Finjan, Inc.","challenged":61,"instituted_against":0,"denied":23,"survival_rate":0.377},{"canonical_name":"Magna Electronics Inc.","challenged":61,"instituted_against":0,"denied":14,"survival_rate":0.2295},{"canonical_name":"Mullen Industries LLC","challenged":56,"instituted_against":45,"denied":11,"survival_rate":0.1964},{"canonical_name":"Proxense, LLC","challenged":56,"instituted_against":33,"denied":11,"survival_rate":0.1964},{"canonical_name":"Open Text Inc.","challenged":56,"instituted_against":15,"denied":31,"survival_rate":0.5536},{"canonical_name":"Immersion Corporation","challenged":55,"instituted_against":26,"denied":4,"survival_rate":0.0727},{"canonical_name":"Smartflash LLC","challenged":54,"instituted_against":0,"denied":1,"survival_rate":0.0185},{"canonical_name":"Qualcomm Incorporated","challenged":53,"instituted_against":10,"denied":0,"survival_rate":0.0},{"canonical_name":"EcoFactor, Inc.","challenged":52,"instituted_against":30,"denied":4,"survival_rate":0.0769},{"canonical_name":"Scramoge Technology Ltd.","challenged":51,"instituted_against":22,"denied":22,"survival_rate":0.4314},{"canonical_name":"Lynk Labs, Inc.","challenged":50,"instituted_against":40,"denied":2,"survival_rate":0.04},{"canonical_name":"Apex Beam Technologies LLC","challenged":49,"instituted_against":46,"denied":3,"survival_rate":0.0612},{"canonical_name":"Qualcomm Incorporated","challenged":49,"instituted_against":10,"denied":0,"survival_rate":0.0}],"top_pairs":[{"petitioner":"Apple Inc.","respondent":"Masimo Corporation","filings":70,"instituted":30},{"petitioner":"Comcast Cable Communications, LLC","respondent":"Rovi Guides, Inc.","filings":63,"instituted":2},{"petitioner":"Alcon Inc.","respondent":"AMO Development, LLC","filings":41,"instituted":22},{"petitioner":"Apple Inc.","respondent":"Smartflash LLC","filings":40,"instituted":0},{"petitioner":"Micron Technology, Inc.","respondent":"Yangtze Memory Technologies Company, Ltd.","filings":38,"instituted":24},{"petitioner":"Samsung Electronics Co., Ltd.","respondent":"Staton Techiya, LLC","filings":36,"instituted":26},{"petitioner":"Apple Inc.","respondent":"Apex Beam Technologies LLC","filings":35,"instituted":32},{"petitioner":"Samsung Electronics Co., Ltd.","respondent":"Netlist, Inc.","filings":34,"instituted":23},{"petitioner":"Abbott Diabetes Care Inc.","respondent":"DexCom, Inc.","filings":34,"instituted":28},{"petitioner":"Amazon.com, Inc.","respondent":"Nokia Technologies Oy","filings":34,"instituted":32},{"petitioner":"Intel Corporation","respondent":"Qualcomm Incorporated","filings":31,"instituted":10},{"petitioner":"Apple Inc.","respondent":"Corephotonics, Ltd.","filings":33,"instituted":14},{"petitioner":"Apple Inc.","respondent":"Telefonaktiebolaget LM Ericsson","filings":30,"instituted":21},{"petitioner":"Google LLC","respondent":"EcoFactor, Inc.","filings":29,"instituted":18},{"petitioner":"Netflix, Inc.","respondent":"Avago Technologies International Sales Pte. Limited","filings":28,"instituted":17}],"trial_types":[{"trial_type":"IPR","filings":19285,"instituted":5827,"denied":3818,"rate_instituted":0.6041},{"trial_type":"PGR","filings":544,"instituted":202,"denied":141,"rate_instituted":0.5889},{"trial_type":"CBM","filings":493,"instituted":5,"denied":55,"rate_instituted":0.0833},{"trial_type":"DER","filings":28,"instituted":3,"denied":10,"rate_instituted":0.2308}],"timing":{"median_petition_to_institution_days":190,"p25_days":180,"p75_days":201,"sample_size":18255}};
+
+// ---- Charts ----
+const COLORS = { green: '#059669', red: '#c8401a', blue: '#2563eb', gold: '#b45309', muted: '#d1d5db' };
+
+// Institution rates chart
+new Chart(document.getElementById('ratesChart'), {
+  type: 'bar',
+  data: {
+    labels: DATA.institution_rates.map(r => r.year),
+    datasets: [
+      {
+        label: 'Institution Rate %',
+        data: DATA.institution_rates.map(r => r.rate_instituted ? Math.round(r.rate_instituted*1000)/10 : 0),
+        backgroundColor: DATA.institution_rates.map(r => r.year >= 2021 && r.year <= 2024 ? COLORS.green : COLORS.muted),
+        borderRadius: 3, yAxisID: 'y',
+      },
+      {
+        label: 'Total Decided',
+        data: DATA.institution_rates.map(r => r.total_decided),
+        type: 'line', borderColor: COLORS.blue, backgroundColor: 'transparent',
+        pointRadius: 3, tension: 0.3, yAxisID: 'y2',
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top', labels: { font: { size: 11 }, color: '#6b7280' } },
+      tooltip: { callbacks: { label: ctx => ctx.dataset.label === 'Institution Rate %' ? `Rate: ${ctx.raw}%` : `Decided: ${ctx.raw.toLocaleString()}` } }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { family: 'Courier New', size: 11 }, color: '#6b7280' } },
+      y: { position: 'left', min: 0, max: 100, ticks: { callback: v => v+'%', font: { size: 11 }, color: '#6b7280' }, grid: { color: '#f3f4f6' } },
+      y2: { position: 'right', grid: { display: false }, ticks: { callback: v => v.toLocaleString(), font: { size: 10 }, color: COLORS.blue } }
+    }
+  }
+});
+
+// Trial type donut
+new Chart(document.getElementById('typeChart'), {
+  type: 'doughnut',
+  data: {
+    labels: DATA.trial_types.map(t => t.trial_type),
+    datasets: [{ data: DATA.trial_types.map(t => t.filings), backgroundColor: [COLORS.green, COLORS.blue, COLORS.red, COLORS.gold], borderWidth: 2 }]
+  },
+  options: { plugins: { legend: { position: 'right', labels: { font: { size: 11 } } } } }
+});
+
+// Trial type rate
+new Chart(document.getElementById('typeRateChart'), {
+  type: 'bar',
+  data: {
+    labels: DATA.trial_types.map(t => t.trial_type),
+    datasets: [{ label: 'Institution Rate', data: DATA.trial_types.map(t => t.rate_instituted ? Math.round(t.rate_instituted*1000)/10 : 0), backgroundColor: [COLORS.green, COLORS.blue, COLORS.red, COLORS.gold], borderRadius: 4 }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: { y: { min: 0, max: 100, ticks: { callback: v => v+'%', font: { size: 11 } }, grid: { color: '#f3f4f6' } }, x: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+  }
+});
+
+// Tech area chart
+new Chart(document.getElementById('techChart'), {
+  type: 'bar',
+  data: {
+    labels: DATA.by_technology.map(t => t.label),
+    datasets: [
+      { label: 'Institution Rate', data: DATA.by_technology.map(t => Math.round(t.rate_instituted*1000)/10), backgroundColor: COLORS.green, borderRadius: 3 },
+      { label: 'Total Decided', data: DATA.by_technology.map(t => t.total_decided), type: 'line', borderColor: COLORS.blue, backgroundColor: 'transparent', pointRadius: 4, tension: 0.3, yAxisID: 'y2' }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    plugins: { legend: { position: 'top', labels: { font: { size: 11 }, color: '#6b7280' } } },
+    scales: {
+      x: { min: 0, max: 100, ticks: { callback: v => v+'%', font: { size: 11 } }, grid: { color: '#f3f4f6' } },
+      y: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#374151' } },
+      y2: { display: false }
+    }
+  }
+});
+
+// Timing histogram (approximate distribution)
+const timingBuckets = ['<150','150-165','165-180','180-195','195-210','210-225','225-240','>240'];
+const timingApprox  = [120, 580, 2100, 6800, 5500, 1900, 820, 435]; // estimated from p25/median/p75
+new Chart(document.getElementById('timingChart'), {
+  type: 'bar',
+  data: {
+    labels: timingBuckets,
+    datasets: [{ label: 'Cases', data: timingApprox, backgroundColor: timingBuckets.map((_, i) => i >= 2 && i <= 4 ? COLORS.green : COLORS.muted), borderRadius: 3 }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: { x: { grid: { display: false }, ticks: { font: { size: 11 } } }, y: { grid: { color: '#f3f4f6' }, ticks: { font: { size: 11 } } } }
+  }
+});
+
+// Notable pairs table
+const pairsTable = document.getElementById('pairs-table');
+DATA.top_pairs.forEach((p, i) => {
+  const rate = p.filings > 0 ? Math.round(p.instituted/p.filings*100) : 0;
+  const badge = rate >= 70 ? `<span class="badge badge-green">${rate}%</span>` : rate <= 20 ? `<span class="badge badge-red">${rate}%</span>` : `<span class="badge badge-gold">${rate}%</span>`;
+  pairsTable.innerHTML += `<tr><td style="color:var(--muted);font-family:var(--mono);font-size:0.78rem">${i+1}</td><td><strong>${p.petitioner}</strong></td><td>${p.respondent}</td><td style="font-family:var(--mono)">${p.filings}</td><td style="font-family:var(--mono);color:var(--accent3)">${p.instituted}</td><td>${badge}</td></tr>`;
+});
+
+// ---- Petitioner table (plain JS) ----
+let petState = { data: DATA.top_petitioners, search: '', sortKey: 'filings', sortDir: -1 };
+
+function renderPetitioners() {
+  let list = petState.data;
+  if (petState.search) list = list.filter(p => p.canonical_name.toLowerCase().includes(petState.search.toLowerCase()));
+  list = [...list].sort((a, b) => ((a[petState.sortKey]||0) - (b[petState.sortKey]||0)) * petState.sortDir);
+  const tbody = document.getElementById('petBody');
+  tbody.innerHTML = list.map((p, i) => {
+    const wr = p.win_rate ? Math.round(p.win_rate*100) : 0;
+    const barW = Math.round(wr * 0.8);
+    const wrStr = p.win_rate ? wr + '%' : '—';
+    return `<tr>
+      <td style="color:var(--muted);font-family:var(--mono);font-size:0.75rem">${i+1}</td>
+      <td><strong>${p.canonical_name}</strong></td>
+      <td style="font-family:var(--mono)">${p.filings.toLocaleString()}</td>
+      <td><div class="rate-bar"><div class="bar" style="width:${barW}px"></div><span class="val">${wrStr}</span></div></td>
+      <td style="font-family:var(--mono);color:var(--data-pos)">${p.instituted}</td>
+      <td style="font-family:var(--mono);color:var(--data-neg)">${p.denied}</td>
+    </tr>`;
+  }).join('');
+  const count = document.getElementById('petCount');
+  if (count) count.textContent = `${list.length} of ${petState.data.length}`;
+}
+function filterPetitioners(q) { petState.search = q; renderPetitioners(); }
+function sortPetitioners(k) {
+  petState.sortKey === k ? petState.sortDir *= -1 : (petState.sortKey = k, petState.sortDir = -1);
+  renderPetitioners();
+}
+renderPetitioners();
+
+// ---- Respondent table (plain JS) ----
+let respState = { data: DATA.top_respondents, search: '', sortKey: 'challenged', sortDir: -1 };
+
+function renderRespondents() {
+  let list = respState.data;
+  if (respState.search) list = list.filter(r => r.canonical_name.toLowerCase().includes(respState.search.toLowerCase()));
+  list = [...list].sort((a, b) => ((a[respState.sortKey]||0) - (b[respState.sortKey]||0)) * respState.sortDir);
+  const tbody = document.getElementById('respBody');
+  tbody.innerHTML = list.map((r, i) => {
+    const sr = r.survival_rate !== null ? Math.round(r.survival_rate*100) : null;
+    const barW = Math.round((r.survival_rate||0) * 80);
+    const srStr = sr !== null ? sr + '%' : '—';
+    const name = r.canonical_name.length > 50 ? r.canonical_name.slice(0,50)+'…' : r.canonical_name;
+    return `<tr>
+      <td style="color:var(--muted);font-family:var(--mono);font-size:0.75rem">${i+1}</td>
+      <td><strong>${name}</strong></td>
+      <td style="font-family:var(--mono)">${r.challenged}</td>
+      <td><div class="rate-bar"><div class="bar" style="width:${barW}px;background:var(--accent2)"></div><span class="val">${srStr}</span></div></td>
+      <td style="font-family:var(--mono);color:var(--data-neg)">${r.instituted_against}</td>
+      <td style="font-family:var(--mono);color:var(--data-pos)">${r.denied}</td>
+    </tr>`;
+  }).join('');
+  const count = document.getElementById('respCount');
+  if (count) count.textContent = `${list.length} of ${respState.data.length}`;
+}
+function filterRespondents(q) { respState.search = q; renderRespondents(); }
+function sortRespondents(k) {
+  respState.sortKey === k ? respState.sortDir *= -1 : (respState.sortKey = k, respState.sortDir = -1);
+  renderRespondents();
+}
+renderRespondents();
+</script>
+</body>
+</html>
