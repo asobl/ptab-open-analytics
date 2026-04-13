@@ -1,4 +1,5 @@
-## Local memory and logs -- never pushed
+## Local secrets and memory -- never pushed
+.env
 memory/
 logs/
 data/raw/
